@@ -1,0 +1,75 @@
+componentes: 
+
+[
+
+	{
+		"name": "Rx Vega 56",
+		"price": 420,
+		"description": "Ullamco consequat nostrud ea quis ad aliqua mollit est Lorem et nisi proident et irure",
+  		"category": "Celular",
+  		"caracteristics": [
+    			"Pretty",
+    			"Nice",
+    			"Fast"
+  		],
+  		"image": "https://images.samsung.com/is/image/samsung/hk-en-galaxy-a50s-a507-sm-a5070zkgtgy-violet-194099818?$624_624_PNG$",
+  		"stock": 2
+	},
+
+	{
+		"name": "GTX 108ti",
+		"price": 420,
+		"description": "Ullamco consequat nostrud ea quis ad aliqua mollit est Lorem et nisi proident et irure",
+  		"category": "Componente",
+  		"caracteristics": [
+    			"Pretty",
+    			"Nice",
+    			"Fast"
+  		],
+  		"image": "https://images.samsung.com/is/image/samsung/hk-en-galaxy-a50s-a507-sm-a5070zkgtgy-violet-194099818?$624_624_PNG$",
+  		"stock": 2
+	},
+
+	{
+		"name": "RX 580",
+		"price": 390,
+		"description": "Ullamco consequat nostrud ea quis ad aliqua mollit est Lorem et nisi proident et irure",
+  		"category": "Componente",
+  		"caracteristics": [
+    			"Pretty",
+    			"Nice",
+    			"Fast"
+  		],
+  		"image": "https://images.samsung.com/is/image/samsung/hk-en-galaxy-a50s-a507-sm-a5070zkgtgy-violet-194099818?$624_624_PNG$",
+  		"stock": 2
+	},
+
+	{
+		"name": "GTX 108ti",
+		"price": 420,
+		"description": "Ullamco consequat nostrud ea quis ad aliqua mollit est Lorem et nisi proident et irure",
+  		"category": "Celular",
+  		"caracteristics": [
+    			"Pretty",
+    			"Nice",
+    			"Fast"
+  		],
+  		"image": "https://images.samsung.com/is/image/samsung/hk-en-galaxy-a50s-a507-sm-a5070zkgtgy-violet-194099818?$624_624_PNG$",
+  		"stock": 2
+	},
+
+	{
+		"name": "GTX 108ti",
+		"price": 420,
+		"description": "Ullamco consequat nostrud ea quis ad aliqua mollit est Lorem et nisi proident et irure",
+  		"category": "Celular",
+  		"caracteristics": [
+    			"Pretty",
+    			"Nice",
+    			"Fast"
+  		],
+  		"image": "https://images.samsung.com/is/image/samsung/hk-en-galaxy-a50s-a507-sm-a5070zkgtgy-violet-194099818?$624_624_PNG$",
+  		"stock": 2
+	},
+
+]
