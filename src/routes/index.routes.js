@@ -32,7 +32,7 @@ router.delete('/product', controller.deleteProduct);
 router.post('/user', controller.postUser);
 router.put('/api/user', controller.updateUser);
 router.post('/api/login', controller.login);
-router.post('/register', controller.register);
+router.post('/api/register', controller.register);
 
 //Restricted
 

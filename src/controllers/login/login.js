@@ -10,8 +10,6 @@ const login = async (req, res, next) => {
         const username_test = req.body.username;
         const password_test = req.body.password;
 
-        console.log("ESTÁS EN EL LOGIN.JS")
-        console.log(username_test, password_test)
 
         //Check for right format
         onlyNumbersOrLetters(username_test, "username");
@@ -29,8 +27,6 @@ const login = async (req, res, next) => {
         //compare user_test_password with encrpyt password_test
 
         const compare = await bcrypt.compare(password_test, user_test.password);
-
-        console.log(compare);
 
         if (compare) {
             console.log('Correct Password');

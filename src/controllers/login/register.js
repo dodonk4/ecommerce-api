@@ -34,6 +34,7 @@ const register = async (req, res, next) => {
                             shoppingCart: req.body.shoppingCart
                         })
                         
+                        
                         user.save();
                 
                         res.send(user);
