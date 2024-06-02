@@ -1,53 +1,54 @@
 import db from "../../database/db.js";
 import Product from "../../schemas/Product.js";
 
-const getProducts = async (req, res) => {
+const getProducts = async (req, res, next) => {
+  try {
+    let products = [];
+    let productsByWordsToMatch = [];
+    let productIds = new Set();
 
+    if (req.query.category) {
+      products = await Product.find({ category: req.query.category });
+    } else if (req.query.filter) {
+      let filter = req.query.filter;
 
+      productsByWordsToMatch = await Product.find({
+        wordsToMatch: { $regex: filter, $options: "i" },
+      });
 
-    let products;
-    let product;
-    let productsByWordsToMatch;
+      let searchFields = ['category', 'type', 'brand', 'fullname'];
+      for (let field of searchFields) {
+        let foundProducts = await Product.find({
+          [field]: { $regex: filter, $options: "i" },
+        });
+        foundProducts.forEach((product) => {
+          if (!productIds.has(product._id.toString())) {
+            productIds.add(product._id.toString());
+            products.push(product);
+          }
+        });
+      }
 
-
-    if(req.query.category){
-
-        products = await Product.find({ category: req.query.category })
-        
-    }else if(req.query.filter){
-
-        let filter = req.query.filter;
-
-        if(filter.length === 1){
-            return undefined;
+      productsByWordsToMatch.forEach((element) => {
+        if (!productIds.has(element._id.toString())) {
+          productIds.add(element._id.toString());
+          products.push(element);
         }
-        
-        productsByWordsToMatch = await Product.find({ wordsToMatch: { $regex: filter, $options: 'i'} })
-
-        products = await Product.find({ category: { $regex: filter, $options: 'i'} })
-
-        if(products[0] === undefined){
-            products = await Product.find({ type: { $regex: filter, $options: 'i'} })
-        }
-        if(products[0] === undefined){
-            products = await Product.find({ brand: { $regex: filter, $options: 'i'} })
-        }
-        if(products[0] === undefined){
-            products = await Product.find({ fullname: { $regex: filter, $options: 'i'} })
-        }
-        
-        if(productsByWordsToMatch[0] != undefined){
-            productsByWordsToMatch.forEach(element => {
-                products.push(element);
-            });
-        }
-    }else if(req.query.product){
-        products = await Product.findOne({ name: req.query.product })
-    }else{
-        products = await Product.find();
+      });
+    } else if (req.query.product) {
+      let product = await Product.findOne({ name: req.query.product });
+      if (product && !productIds.has(product._id.toString())) {
+        productIds.add(product._id.toString());
+        products.push(product);
+      }
+    } else {
+      products = await Product.find();
     }
 
     res.send(products);
-}
+  } catch (error) {
+    next(error);
+  }
+};
 
 export default getProducts;
