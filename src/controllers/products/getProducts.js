@@ -44,6 +44,7 @@ const getProducts = async (req, res, next) => {
     } else {
       products = await Product.find();
     }
+    console.log(products);
 
     res.send(products);
   } catch (error) {

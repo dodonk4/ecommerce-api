@@ -39,6 +39,7 @@ const updateUser = async (req, res, next) => {
         }
 
         if(req.body.shoppingCart){
+            console.log(req.body.shoppingCart);
 
             if(req.body.shoppingCartMethod == "replace"){
                 objectToPassAsProps.shoppingCart = req.body.shoppingCart;
